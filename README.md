@@ -1,2 +1,3 @@
 # AutoForce - Backend Challenge
-:rocket: An awesome RESTful API to an awesome backend challenge
+
+:rocket: *An awesome RESTful API to an awesome backend challenge*
