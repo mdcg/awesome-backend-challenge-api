@@ -1,11 +1,15 @@
-Started GET "/" for ::1 at 2019-04-17 20:40:17 -0300
+  [1m[35m (259.3ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode'[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (257.7ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode'[0m
+  ↳ /usr/local/bundle/bin/rake:23
+Started GET "/" for 172.21.0.1 at 2019-04-24 20:25:21 +0000
 Processing by Rails::WelcomeController#index as HTML
-  Rendering /var/lib/gems/2.5.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /var/lib/gems/2.5.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
-Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+  Rendering /usr/local/bundle/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/favicon.ico" for ::1 at 2019-04-17 20:40:17 -0300
+Started GET "/favicon.ico" for 172.21.0.1 at 2019-04-24 20:25:21 +0000
   
 ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
   
