@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Create and List Orders
+localhost:3000/api/v1/orders
 
-Things you may want to cover:
+- List the Orders of a Purchase Channel
+localhost:3000/api/v1/orders?purchase_channel=Site+BR
 
-* Ruby version
+- Get the status of an Order
+localhost:3000/api/v1/orders/1
+localhost:3000/api/v1/search?reference=BR102030
+localhost:3000/api/v1/search?client_name=São+Benedito
 
-* System dependencies
+- Update an Order
+localhost:3000/api/v1/orders/1
 
-* Configuration
+- Create and List batches
+localhost:3000/api/v1/batches
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Get batch details
+localhost:3000/api/v1/batches/1
