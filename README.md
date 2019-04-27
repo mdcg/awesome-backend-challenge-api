@@ -11,6 +11,7 @@ localhost:3000/api/v1/orders?purchase_channel=Site+BR
 
 - Get the status of an Order
 localhost:3000/api/v1/orders/1
+
 localhost:3000/api/v1/search?reference=BR102030
 localhost:3000/api/v1/search?client_name=São+Benedito
 
@@ -22,3 +23,12 @@ localhost:3000/api/v1/batches
 
 - Get batch details
 localhost:3000/api/v1/batches/1
+
+- Produce a batch
+localhost:3000/api/v1/batches/1/produce
+
+- Submit a batch
+localhost:3000/api/v1/batches/1/submit
+
+- Financial Report
+localhost:3000/api/v1/report?purchase_channel=

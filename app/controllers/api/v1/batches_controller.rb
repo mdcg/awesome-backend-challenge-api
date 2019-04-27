@@ -1,6 +1,6 @@
 class Api::V1::BatchesController < Api::V1::ApiController
-    before_action :set_batch, only: [:show, :produce, :send]
-    before_action :require_authorization!, only: [:show, :produce, :send]
+    before_action :set_batch, only: [:show, :produce, :submit]
+    before_action :require_authorization!, only: [:show]
 
     def index
         @batches = current_user.batchs
@@ -42,18 +42,18 @@ class Api::V1::BatchesController < Api::V1::ApiController
         end
     end
 
-    # def dispatch        
-    #     @orders = @batch.orders.where('status = ? AND delivery_service = ?', 'closing', params[:delivery_service])
+    def submit        
+        @orders = @batch.orders.where('status = ? AND delivery_service = ?', 'closing', params[:delivery_service])
 
-    #     if @orders.empty?
-    #         render json: {status: :fail, data: {}}, status: :unprocessable_entity
-    #     else
-    #         @orders.each do |order|
-    #             order.update(status: 'sent')
-    #         end
-    #         render json: {status: :success, data: @batch.as_json(include: :orders)}
-    #     end
-    # end
+        if @orders.empty?
+            render json: {status: :fail, data: {}}, status: :unprocessable_entity
+        else
+            @orders.each do |order|
+                order.update(status: 'sent')
+            end
+            render json: {status: :success, data: @batch.as_json(include: :orders)}
+        end
+    end
 
     private
         def set_batch

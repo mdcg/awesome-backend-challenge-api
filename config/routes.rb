@@ -4,10 +4,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :orders
       resources :batches do
-        put('produce' => 'batches#produce')
-        # put('send' => 'batches#send')
+        put 'produce', to: 'batches#produce'
+        put 'submit', to: 'batches#submit'
       end
-      get('search' => 'search#search')
+      get 'search', to: 'search#search'
+      get 'report', to: 'report#index'
     end
   end
 end

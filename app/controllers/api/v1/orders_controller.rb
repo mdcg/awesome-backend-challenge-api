@@ -27,6 +27,7 @@ class Api::V1::OrdersController < Api::V1::ApiController
     end
 
     def update
+        # Checar se é ready ou production
         if @order.update(order_params)
             render json: {status: :success, data: @order}
         else
@@ -44,7 +45,7 @@ class Api::V1::OrdersController < Api::V1::ApiController
         end
 
         def order_params
-            params.permit(:reference, :purchase_channel, :client_name, :address, :delivery_service, :total_value, :line_items, :status)
+            params.permit(:reference, :purchase_channel, :client_name, :address, :delivery_service, :total_value, :line_items)
         end
 
         def require_authorization!
