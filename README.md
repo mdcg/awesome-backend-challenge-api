@@ -1,5 +1,8 @@
 # README
 
+rails c
+User.create(email: 'mauro@gmail.com', password: '123456')
+
 - Create and List Orders
 localhost:3000/api/v1/orders
 

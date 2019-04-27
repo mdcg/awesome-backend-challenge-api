@@ -2494,3 +2494,2736 @@ Processing by Api::V1::BatchesController#show as */*
 Completed 200 OK in 10ms (Views: 0.8ms | ActiveRecord: 1.7ms)
 
 
+Started POST "/api/v1/batches" for 172.23.0.1 at 2019-04-26 23:00:29 +0000
+Processing by Api::V1::BatchesController#create as */*
+  Parameters: {"reference"=>"BR102030", "purchase_channel"=>"Site BR3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR102030' AND purchase_channel = 'Site BR3' AND status = 'ready') LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:13
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mBatch Create (0.6ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["reference", "BR102030"], ["purchase_channel", "Site BR3"], ["user_id", 2], ["created_at", "2019-04-26 23:00:29.958954"], ["updated_at", "2019-04-26 23:00:29.958954"]]
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR102030' AND purchase_channel = 'Site BR3' AND status = 'ready')[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/batches_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.6ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["batch_id", 15], ["updated_at", "2019-04-26 23:00:29.977797"], ["id", 5]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["batch_id", 15], ["updated_at", "2019-04-26 23:00:29.983553"], ["id", 6]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 15]]
+  ↳ app/controllers/api/v1/batches_controller.rb:21
+Completed 201 Created in 62ms (Views: 0.7ms | ActiveRecord: 15.7ms)
+
+
+Started POST "/api/v1/batches" for 172.23.0.1 at 2019-04-26 23:00:39 +0000
+Processing by Api::V1::BatchesController#create as */*
+  Parameters: {"reference"=>"BR102030", "purchase_channel"=>"Site BR"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR102030' AND purchase_channel = 'Site BR' AND status = 'ready') LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:13
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mBatch Create (1.0ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["reference", "BR102030"], ["purchase_channel", "Site BR"], ["user_id", 2], ["created_at", "2019-04-26 23:00:39.724683"], ["updated_at", "2019-04-26 23:00:39.724683"]]
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR102030' AND purchase_channel = 'Site BR' AND status = 'ready')[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/batches_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.6ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["batch_id", 16], ["updated_at", "2019-04-26 23:00:39.732864"], ["id", 2]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["batch_id", 16], ["updated_at", "2019-04-26 23:00:39.739100"], ["id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 16]]
+  ↳ app/controllers/api/v1/batches_controller.rb:21
+Completed 201 Created in 28ms (Views: 0.6ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/api/v1/batches/14" for 172.23.0.1 at 2019-04-26 23:01:15 +0000
+Processing by Api::V1::BatchesController#show as */*
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:46
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 14]]
+  ↳ app/controllers/api/v1/batches_controller.rb:29
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/v1/batches/15" for 172.23.0.1 at 2019-04-26 23:01:20 +0000
+Processing by Api::V1::BatchesController#show as */*
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:46
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 15]]
+  ↳ app/controllers/api/v1/batches_controller.rb:29
+Completed 200 OK in 9ms (Views: 1.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/v1/batches/16" for 172.23.0.1 at 2019-04-26 23:01:26 +0000
+Processing by Api::V1::BatchesController#show as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:46
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 16]]
+  ↳ app/controllers/api/v1/batches_controller.rb:29
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-26 23:01:31 +0000
+Processing by Api::V1::OrdersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/orders_controller.rb:11
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/v1/batches" for 172.23.0.1 at 2019-04-26 23:03:07 +0000
+Processing by Api::V1::BatchesController#create as */*
+  Parameters: {"reference"=>"BR102030", "purchase_channel"=>"Site BR"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR102030' AND purchase_channel = 'Site BR' AND status = 'ready') LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:13
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mBatch Create (0.3ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["reference", "BR102030"], ["purchase_channel", "Site BR"], ["user_id", 2], ["created_at", "2019-04-26 23:03:07.217625"], ["updated_at", "2019-04-26 23:03:07.217625"]]
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR102030' AND purchase_channel = 'Site BR' AND status = 'ready')[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/batches_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "status" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["batch_id", 17], ["status", "production"], ["updated_at", "2019-04-26 23:03:07.233145"], ["id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "status" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["batch_id", 17], ["status", "production"], ["updated_at", "2019-04-26 23:03:07.236965"], ["id", 2]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 17]]
+  ↳ app/controllers/api/v1/batches_controller.rb:21
+Completed 201 Created in 57ms (Views: 0.5ms | ActiveRecord: 14.4ms)
+
+
+Started POST "/api/v1/batches" for 172.23.0.1 at 2019-04-26 23:03:14 +0000
+Processing by Api::V1::BatchesController#create as */*
+  Parameters: {"reference"=>"BR102030", "purchase_channel"=>"Site BR"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR102030' AND purchase_channel = 'Site BR' AND status = 'ready') LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:13
+Completed 422 Unprocessable Entity in 5ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/v1/batches" for 172.23.0.1 at 2019-04-26 23:21:21 +0000
+Processing by Api::V1::BatchesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT "batches".* FROM "batches" WHERE "batches"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/batches_controller.rb:7
+Completed 200 OK in 49ms (Views: 19.2ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/api/v1/batches/17" for 172.23.0.1 at 2019-04-26 23:21:30 +0000
+Processing by Api::V1::BatchesController#show as */*
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.7ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:59
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 17]]
+  ↳ app/controllers/api/v1/batches_controller.rb:29
+Completed 200 OK in 49ms (Views: 1.0ms | ActiveRecord: 6.5ms)
+
+
+Started PUT "/api/v1/batches/17" for 172.23.0.1 at 2019-04-26 23:22:02 +0000
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for Api::V1::BatchesController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:158:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17" for 172.23.0.1 at 2019-04-26 23:22:41 +0000
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for Api::V1::BatchesController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:158:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-26 23:23:16 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/sign_in" for 172.23.0.1 at 2019-04-26 23:23:16 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/users/sign_in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-26 23:23:56 +0000
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/batches/17/produce"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-26 23:24:17 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/sign_in" for 172.23.0.1 at 2019-04-26 23:24:17 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/users/sign_in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-26 23:24:38 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/sign_in" for 172.23.0.1 at 2019-04-26 23:24:38 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/users/sign_in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-26 23:24:47 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/sign_in" for 172.23.0.1 at 2019-04-26 23:24:47 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/users/sign_in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-26 23:31:59 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/sign_in" for 172.23.0.1 at 2019-04-26 23:32:00 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/users/sign_in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-26 23:33:58 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/sign_in" for 172.23.0.1 at 2019-04-26 23:33:59 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/users/sign_in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:34:13 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/sign_in" for 172.23.0.1 at 2019-04-26 23:34:13 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/users/sign_in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:34:16 +0000
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/batches/17/produce"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:34:25 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/batches/17/produce"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:34:32 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/sign_in" for 172.23.0.1 at 2019-04-26 23:34:32 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/users/sign_in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:34:54 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/api/v1/batches/17/produce"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:34:59 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-26 23:34:59 +0000
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 19ms (Views: 0.1ms | ActiveRecord: 7.0ms)
+
+
+Started PUT "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:35:16 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/api/v1/batches/17/produce"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:35:24 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/sign_in" for 172.23.0.1 at 2019-04-26 23:35:24 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/users/sign_in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:35:49 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 5.2ms)
+
+
+  
+NoMethodError (undefined method `user' for nil:NilClass):
+  
+app/controllers/api/v1/batches_controller.rb:64:in `require_authorization!'
+Started PUT "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:38:53 +0000
+  
+SyntaxError (/myapp/app/controllers/api/v1/batches_controller.rb:48: syntax error, unexpected keyword_else, expecting ':'
+...[:id] != nil ? params[:id] else params[:batch_id])
+...                           ^~~~
+/myapp/app/controllers/api/v1/batches_controller.rb:48: syntax error, unexpected ')', expecting keyword_end
+...ms[:id] else params[:batch_id])
+...                              ^):
+  
+app/controllers/api/v1/batches_controller.rb:48: syntax error, unexpected keyword_else, expecting ':'
+app/controllers/api/v1/batches_controller.rb:48: syntax error, unexpected ')', expecting keyword_end
+Started PUT "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:39:18 +0000
+  
+SyntaxError (/myapp/app/controllers/api/v1/batches_controller.rb:48: syntax error, unexpected keyword_else, expecting ':'
+...[:id] != nil ? params[:id] else params[:batch_id] end)
+...                           ^~~~
+/myapp/app/controllers/api/v1/batches_controller.rb:48: syntax error, unexpected ')', expecting keyword_end
+...id] else params[:batch_id] end)
+...                              ^
+/myapp/app/controllers/api/v1/batches_controller.rb:63: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/api/v1/batches_controller.rb:48: syntax error, unexpected keyword_else, expecting ':'
+app/controllers/api/v1/batches_controller.rb:48: syntax error, unexpected ')', expecting keyword_end
+app/controllers/api/v1/batches_controller.rb:63: syntax error, unexpected keyword_end, expecting end-of-input
+Started PUT "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:40:27 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.5ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:59
+  [1m[36mOrder Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production')[0m  [["batch_id", 17]]
+  ↳ app/controllers/api/v1/batches_controller.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:39
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "closing"], ["updated_at", "2019-04-26 23:40:27.523815"], ["id", 2]]
+  ↳ app/controllers/api/v1/batches_controller.rb:39
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:39
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:39
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "closing"], ["updated_at", "2019-04-26 23:40:27.529484"], ["id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:39
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:39
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 17]]
+  ↳ app/controllers/api/v1/batches_controller.rb:41
+Completed 200 OK in 60ms (Views: 0.4ms | ActiveRecord: 14.7ms)
+
+
+Started PUT "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:40:36 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.8ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:59
+  [1m[36mOrder Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+Completed 422 Unprocessable Entity in 11ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+
+
+Started PUT "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:40:39 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.4ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:59
+  [1m[36mOrder Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+Completed 422 Unprocessable Entity in 8ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/v1/batches/17" for 172.23.0.1 at 2019-04-26 23:40:48 +0000
+Processing by Api::V1::BatchesController#show as */*
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.4ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:59
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 17]]
+  ↳ app/controllers/api/v1/batches_controller.rb:29
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 1.6ms)
+
+
+Started PUT "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-26 23:41:14 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.7ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:59
+  [1m[36mOrder Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 2.2ms)
+
+
+Started PUT "/api/v1/batches/17/produce/" for 172.23.0.1 at 2019-04-27 01:33:46 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `send'
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-27 01:33:57 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `send'
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-27 01:34:39 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `send'
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-27 01:36:17 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `send'
+Started PUT "/api/v1/batches/17/send" for 172.23.0.1 at 2019-04-27 01:36:29 +0000
+Processing by Api::V1::BatchesController#send as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `send'
+Started GET "/api/v1/search?client_name=S%C3%A3o+Benedito" for 172.23.0.1 at 2019-04-27 01:36:41 +0000
+Processing by Api::V1::SearchController#search as */*
+  Parameters: {"client_name"=>"São Benedito"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (client_name = 'São Benedito')[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/search_controller.rb:9
+Completed 200 OK in 63ms (Views: 20.5ms | ActiveRecord: 11.2ms)
+
+
+Started PUT "/api/v1/batches/17/send" for 172.23.0.1 at 2019-04-27 01:36:51 +0000
+Processing by Api::V1::BatchesController#send as */*
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `send'
+Started PUT "/api/v1/batches/17/send" for 172.23.0.1 at 2019-04-27 01:37:59 +0000
+  
+AbstractController::ActionNotFound (The action 'send' could not be found for Api::V1::BatchesController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:158:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-27 01:38:06 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:60
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:71
+  [1m[36mOrder Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+Completed 422 Unprocessable Entity in 39ms (Views: 0.2ms | ActiveRecord: 8.7ms)
+
+
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-27 01:38:08 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.4ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:60
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:71
+  [1m[36mOrder Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-27 01:38:08 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.5ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:60
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:71
+  [1m[36mOrder Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+Completed 422 Unprocessable Entity in 10ms (Views: 0.3ms | ActiveRecord: 2.4ms)
+
+
+Started PUT "/api/v1/batches/17/send" for 172.23.0.1 at 2019-04-27 01:40:10 +0000
+Processing by Api::V1::BatchesController#send as */*
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `send'
+Started PUT "/api/v1/batches/17/send" for 172.23.0.1 at 2019-04-27 01:42:21 +0000
+Processing by Api::V1::BatchesController#send as */*
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `send'
+Started PUT "/api/v1/batches/17/send" for 172.23.0.1 at 2019-04-27 01:42:34 +0000
+Processing by Api::V1::BatchesController#send as */*
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `send'
+Started PUT "/api/v1/batches/17/send" for 172.23.0.1 at 2019-04-27 01:43:46 +0000
+Processing by Api::V1::BatchesController#send as */*
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `send'
+Started PUT "/api/v1/batches/17/send" for 172.23.0.1 at 2019-04-27 01:44:35 +0000
+Processing by Api::V1::BatchesController#send as */*
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `send'
+Started PUT "/api/v1/batches/17/send" for 172.23.0.1 at 2019-04-27 01:46:37 +0000
+  
+AbstractController::ActionNotFound (The action 'send' could not be found for Api::V1::BatchesController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:158:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-27 01:46:46 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:59
+  [1m[36mOrder Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+Completed 422 Unprocessable Entity in 39ms (Views: 0.2ms | ActiveRecord: 10.4ms)
+
+
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-27 01:46:56 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `send'
+Started GET "/api/v1/batches/17" for 172.23.0.1 at 2019-04-27 01:47:15 +0000
+Processing by Api::V1::BatchesController#show as */*
+  Parameters: {"id"=>"17"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `send'
+Started PUT "/api/v1/batches/17" for 172.23.0.1 at 2019-04-27 01:47:22 +0000
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for Api::V1::BatchesController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:158:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/batches/17" for 172.23.0.1 at 2019-04-27 01:47:25 +0000
+Processing by Api::V1::BatchesController#show as */*
+  Parameters: {"id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `send'
+Started GET "/api/v1/batches/17" for 172.23.0.1 at 2019-04-27 01:48:13 +0000
+Processing by Api::V1::BatchesController#show as */*
+  Parameters: {"id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `send'
+Started GET "/api/v1/batches/17" for 172.23.0.1 at 2019-04-27 01:48:51 +0000
+Processing by Api::V1::BatchesController#show as */*
+  Parameters: {"id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `send'
+Started GET "/api/v1/batches/17/send" for 172.23.0.1 at 2019-04-27 01:49:42 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/batches/17/send"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/send" for 172.23.0.1 at 2019-04-27 01:49:48 +0000
+Processing by Api::V1::BatchesController#send as */*
+  Parameters: {"reference"=>"BR102030", "purchase_channel"=>"Site BR3", "batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `send'
+Started PUT "/api/v1/batches/17/send" for 172.23.0.1 at 2019-04-27 01:50:31 +0000
+Processing by Api::V1::BatchesController#send as */*
+  Parameters: {"batch_id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `send'
+Started GET "/api/v1/batches/17" for 172.23.0.1 at 2019-04-27 01:51:03 +0000
+Processing by Api::V1::BatchesController#show as */*
+  Parameters: {"id"=>"17"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `send'
+Started PUT "/api/v1/batches/17" for 172.23.0.1 at 2019-04-27 01:51:24 +0000
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for Api::V1::BatchesController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:158:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-27 01:51:36 +0000
+Processing by Api::V1::BatchesController#produce as */*
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+Completed 422 Unprocessable Entity in 42ms (Views: 0.3ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/api/v1/batches/17" for 172.23.0.1 at 2019-04-27 01:51:40 +0000
+Processing by Api::V1::BatchesController#show as */*
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.4ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 17]]
+  ↳ app/controllers/api/v1/batches_controller.rb:29
+Completed 200 OK in 27ms (Views: 0.5ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/api/v1/batches" for 172.23.0.1 at 2019-04-27 01:51:44 +0000
+Processing by Api::V1::BatchesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT "batches".* FROM "batches" WHERE "batches"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/batches_controller.rb:7
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/search?client_name=S%C3%A3o+Benedito" for 172.23.0.1 at 2019-04-27 01:51:47 +0000
+Processing by Api::V1::SearchController#search as */*
+  Parameters: {"client_name"=>"São Benedito"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (client_name = 'São Benedito')[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/search_controller.rb:9
+Completed 200 OK in 7ms (Views: 2.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-27 01:51:52 +0000
+Processing by Api::V1::OrdersController#create as */*
+  Parameters: {"reference"=>"BR102032", "purchase_channel"=>"Site BR3", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"R$ 123.30", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}", "status"=>"ready"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 422 Unprocessable Entity in 8ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-27 01:54:00 +0000
+Processing by Api::V1::OrdersController#create as */*
+  Parameters: {"reference"=>"BR102032", "purchase_channel"=>"Site BR3", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"R$ 123.30", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}", "status"=>"ready"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "status", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["reference", "BR102032"], ["purchase_channel", "Site BR3"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "R$ 123.30"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["status", "ready"], ["user_id", 2], ["created_at", "2019-04-27 01:54:00.537095"], ["updated_at", "2019-04-27 01:54:00.537095"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 31ms (Views: 0.6ms | ActiveRecord: 7.5ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (115.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (110.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (647.8ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (260.4ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (20.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (19.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20190424214430)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190424214430_devise_create_users.rb:5
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20190424214430_devise_create_users.rb:39
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/migrate/20190424214430_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190424214430"]]
+  ↳ bin/rails:9
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddNameToUser (20190424214431)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "name" character varying[0m
+  ↳ db/migrate/20190424214431_add_name_to_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190424214431"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddAuthenticationTokenToUsers (20190424215122)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "authentication_token" character varying(30)[0m
+  ↳ db/migrate/20190424215122_add_authentication_token_to_users.rb:3
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_authentication_token" ON "users"  ("authentication_token")[0m
+  ↳ db/migrate/20190424215122_add_authentication_token_to_users.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190424215122"]]
+  ↳ bin/rails:9
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreatingReferences (20190426022956)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "batches" ("id" bigserial primary key, "reference" character varying, "purchase_channel" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:3
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE  INDEX  "index_batches_on_user_id" ON "batches"  ("user_id")[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:3
+  [1m[35m (15.9ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "reference" character varying, "purchase_channel" character varying, "client_name" character varying, "address" text, "delivery_service" character varying, "total_value" character varying, "line_items" text, "status" character varying DEFAULT 'ready', "user_id" bigint, "batch_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:10
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:10
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_batch_id" ON "orders"  ("batch_id")[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190426022956"]]
+  ↳ bin/rails:9
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-04-27 02:36:14.782333"], ["updated_at", "2019-04-27 02:36:14.782333"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:36:29 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::OrdersController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 15ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-27 02:36:29 +0000
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:36:36 +0000
+Processing by Api::V1::OrdersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-27 02:36:36 +0000
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:36:47 +0000
+Processing by Api::V1::OrdersController#index as */*
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-27 02:36:47 +0000
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:36:49 +0000
+Processing by Api::V1::OrdersController#index as */*
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-27 02:36:49 +0000
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:36:50 +0000
+Processing by Api::V1::OrdersController#index as */*
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-27 02:36:50 +0000
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:36:58 +0000
+Processing by Api::V1::OrdersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-27 02:36:58 +0000
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/orders.json" for 172.23.0.1 at 2019-04-27 02:38:08 +0000
+Processing by Api::V1::OrdersController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:38:31 +0000
+Processing by Api::V1::OrdersController#index as */*
+  Parameters: {"order"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 3ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-27 02:38:31 +0000
+Processing by Devise::SessionsController#new as */*
+  Parameters: {"session"=>{}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:38:32 +0000
+Processing by Api::V1::OrdersController#index as */*
+  Parameters: {"order"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-27 02:38:32 +0000
+Processing by Devise::SessionsController#new as */*
+  Parameters: {"session"=>{}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:38:32 +0000
+Processing by Api::V1::OrdersController#index as */*
+  Parameters: {"order"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-27 02:38:32 +0000
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:38:32 +0000
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:38:32 +0000
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:38:32 +0000
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:38:33 +0000
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:38:33 +0000
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:38:33 +0000
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:38:36 +0000
+Processing by Api::V1::OrdersController#index as */*
+  Parameters: {"order"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-27 02:38:36 +0000
+Processing by Devise::SessionsController#new as */*
+  Parameters: {"session"=>{}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:39:20 +0000
+Processing by Api::V1::OrdersController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:39:21 +0000
+Processing by Api::V1::OrdersController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:39:21 +0000
+Processing by Api::V1::OrdersController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:39:25 +0000
+Processing by Api::V1::OrdersController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/batches" for 172.23.0.1 at 2019-04-27 02:40:16 +0000
+Processing by Api::V1::BatchesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/batches/17" for 172.23.0.1 at 2019-04-27 02:40:34 +0000
+Processing by Api::V1::BatchesController#show as JSON
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.3ms)
+
+
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-27 02:40:58 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "oPnoK9TWKd562LqU9_yd"]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "mauro@gmail.com"], ["encrypted_password", "$2a$11$ZkN6LCh9KkNlaQ4TArCYkuCU8zxhngPqU7O0DN48B.iMzKrfG3m2y"], ["created_at", "2019-04-27 02:42:04.085236"], ["updated_at", "2019-04-27 02:42:04.085236"], ["authentication_token", "oPnoK9TWKd562LqU9_yd"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-27 02:42:26 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.8ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+Filter chain halted as :set_batch rendered or redirected
+Completed 404 Not Found in 19ms (Views: 0.3ms | ActiveRecord: 4.3ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (5011.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (5011.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (117.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (110.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (262.5ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (260.1ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (24.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (19.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20190424214430)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190424214430_devise_create_users.rb:5
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20190424214430_devise_create_users.rb:39
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/migrate/20190424214430_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190424214430"]]
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddNameToUser (20190424214431)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "name" character varying[0m
+  ↳ db/migrate/20190424214431_add_name_to_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190424214431"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddAuthenticationTokenToUsers (20190424215122)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "authentication_token" character varying(30)[0m
+  ↳ db/migrate/20190424215122_add_authentication_token_to_users.rb:3
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_authentication_token" ON "users"  ("authentication_token")[0m
+  ↳ db/migrate/20190424215122_add_authentication_token_to_users.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190424215122"]]
+  ↳ bin/rails:9
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreatingReferences (20190426022956)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "batches" ("id" bigserial primary key, "reference" character varying, "purchase_channel" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:3
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE  INDEX  "index_batches_on_user_id" ON "batches"  ("user_id")[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:3
+  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "reference" character varying, "purchase_channel" character varying, "client_name" character varying, "address" text, "delivery_service" character varying, "total_value" decimal, "line_items" text, "status" character varying DEFAULT 'ready', "user_id" bigint, "batch_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:10
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:10
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_batch_id" ON "orders"  ("batch_id")[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190426022956"]]
+  ↳ bin/rails:9
+  [1m[35m (9.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-04-27 02:45:14.562084"], ["updated_at", "2019-04-27 02:45:14.562084"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "2odAmCtBxG41zgBiQmsU"]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "mauro@gmail.com"], ["encrypted_password", "$2a$11$561fdkIeut9kquR7z4qao.S/u1CgxjZhSrK5Orw6WvYbHqBwP7VuW"], ["created_at", "2019-04-27 02:45:34.270145"], ["updated_at", "2019-04-27 02:45:34.270145"], ["authentication_token", "2odAmCtBxG41zgBiQmsU"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:46:18 +0000
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::OrdersController#index as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/orders_controller.rb:11
+Completed 200 OK in 35ms (Views: 4.1ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:46:35 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR102032", "purchase_channel"=>"Site BR3", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"R$ 123.30", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["reference", "BR102032"], ["purchase_channel", "Site BR3"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "0.0"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["user_id", 1], ["created_at", "2019-04-27 02:46:35.484213"], ["updated_at", "2019-04-27 02:46:35.484213"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 40ms (Views: 0.8ms | ActiveRecord: 9.3ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:46:57 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR102032", "purchase_channel"=>"Site BR3", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["reference", "BR102032"], ["purchase_channel", "Site BR3"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "123.0"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["user_id", 1], ["created_at", "2019-04-27 02:46:57.765456"], ["updated_at", "2019-04-27 02:46:57.765456"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 10ms (Views: 0.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/v1/search?client_name=S%C3%A3o+Benedito" for 172.23.0.1 at 2019-04-27 02:47:11 +0000
+Processing by Api::V1::SearchController#search as JSON
+  Parameters: {"client_name"=>"São Benedito"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (client_name = 'São Benedito')[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/search_controller.rb:9
+Completed 200 OK in 6ms (Views: 2.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/batches" for 172.23.0.1 at 2019-04-27 02:47:27 +0000
+Processing by Api::V1::BatchesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.6ms)[0m  [1m[34mSELECT "batches".* FROM "batches" WHERE "batches"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:7
+Completed 200 OK in 11ms (Views: 2.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/api/v1/batches/17" for 172.23.0.1 at 2019-04-27 02:47:33 +0000
+Processing by Api::V1::BatchesController#show as JSON
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.5ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+Filter chain halted as :set_batch rendered or redirected
+Completed 404 Not Found in 7ms (Views: 0.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:47:47 +0000
+Processing by Api::V1::OrdersController#index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/orders_controller.rb:11
+Completed 200 OK in 6ms (Views: 2.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/v1/batches" for 172.23.0.1 at 2019-04-27 02:48:32 +0000
+Processing by Api::V1::BatchesController#create as JSON
+  Parameters: {"reference"=>"BR102032", "purchase_channel"=>"Site BR3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR102032' AND purchase_channel = 'Site BR3' AND status = 'ready') LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:13
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mBatch Create (2.4ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["reference", "BR102032"], ["purchase_channel", "Site BR3"], ["user_id", 1], ["created_at", "2019-04-27 02:48:32.981021"], ["updated_at", "2019-04-27 02:48:32.981021"]]
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR102032' AND purchase_channel = 'Site BR3' AND status = 'ready')[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "status" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["batch_id", 1], ["status", "production"], ["updated_at", "2019-04-27 02:48:32.991197"], ["id", 2]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.6ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "status" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["batch_id", 1], ["status", "production"], ["updated_at", "2019-04-27 02:48:32.995626"], ["id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:21
+Completed 201 Created in 35ms (Views: 0.5ms | ActiveRecord: 9.8ms)
+
+
+Started PUT "/api/v1/batches/17/produce" for 172.23.0.1 at 2019-04-27 02:49:06 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.4ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+Filter chain halted as :set_batch rendered or redirected
+Completed 404 Not Found in 5ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/api/v1/batches/1/produce" for 172.23.0.1 at 2019-04-27 02:49:11 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.5ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production')[0m  [["batch_id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:51
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mOrder Update (0.6ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "closing"], ["updated_at", "2019-04-27 02:49:11.058730"], ["id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "closing"], ["updated_at", "2019-04-27 02:49:11.066293"], ["id", 2]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 8.7ms)
+
+
+  
+NoMethodError (undefined method `orders_to_close' for #<Batch:0x000055d85fdc4aa0>):
+  
+app/controllers/api/v1/batches_controller.rb:54:in `produce'
+Started PUT "/api/v1/batches/1/produce" for 172.23.0.1 at 2019-04-27 02:51:09 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+Completed 422 Unprocessable Entity in 41ms (Views: 0.3ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/api/v1/batches/1" for 172.23.0.1 at 2019-04-27 02:52:10 +0000
+Processing by Api::V1::BatchesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.5ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:29
+Completed 200 OK in 24ms (Views: 0.5ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:52:54 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "123.0"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["user_id", 1], ["created_at", "2019-04-27 02:52:54.359875"], ["updated_at", "2019-04-27 02:52:54.359875"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 33ms (Views: 0.7ms | ActiveRecord: 7.8ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:52:58 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "123.0"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["user_id", 1], ["created_at", "2019-04-27 02:52:58.690755"], ["updated_at", "2019-04-27 02:52:58.690755"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 8ms (Views: 0.6ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/api/v1/batches" for 172.23.0.1 at 2019-04-27 02:53:13 +0000
+Processing by Api::V1::BatchesController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR10203' AND purchase_channel = 'Site BR' AND status = 'ready') LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:13
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mBatch Create (0.4ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["user_id", 1], ["created_at", "2019-04-27 02:53:13.748034"], ["updated_at", "2019-04-27 02:53:13.748034"]]
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR10203' AND purchase_channel = 'Site BR' AND status = 'ready')[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "status" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["batch_id", 2], ["status", "production"], ["updated_at", "2019-04-27 02:53:13.755645"], ["id", 4]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "status" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["batch_id", 2], ["status", "production"], ["updated_at", "2019-04-27 02:53:13.763356"], ["id", 3]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 2]]
+  ↳ app/controllers/api/v1/batches_controller.rb:21
+Completed 201 Created in 45ms (Views: 0.5ms | ActiveRecord: 18.4ms)
+
+
+Started PUT "/api/v1/batches/2/produce" for 172.23.0.1 at 2019-04-27 02:53:24 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"batch_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.4ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production')[0m  [["batch_id", 2]]
+  ↳ app/controllers/api/v1/batches_controller.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mOrder Update (0.7ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "closing"], ["updated_at", "2019-04-27 02:53:24.462574"], ["id", 3]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mOrder Update (1.5ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "closing"], ["updated_at", "2019-04-27 02:53:24.469676"], ["id", 4]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 8.0ms)
+
+
+  
+NoMethodError (undefined method `orders_to_close' for #<Batch:0x00007f4688127bb0>):
+  
+app/controllers/api/v1/batches_controller.rb:54:in `produce'
+Started PUT "/api/v1/batches/2/produce" for 172.23.0.1 at 2019-04-27 02:53:30 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"batch_id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.4ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+Completed 422 Unprocessable Entity in 9ms (Views: 0.3ms | ActiveRecord: 2.0ms)
+
+
+Started PUT "/api/v1/batches/2/produce" for 172.23.0.1 at 2019-04-27 02:53:59 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"batch_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+Completed 422 Unprocessable Entity in 34ms (Views: 0.2ms | ActiveRecord: 8.5ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:54:04 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "123.0"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["user_id", 1], ["created_at", "2019-04-27 02:54:04.621786"], ["updated_at", "2019-04-27 02:54:04.621786"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 25ms (Views: 0.7ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:54:05 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (0.8ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "123.0"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["user_id", 1], ["created_at", "2019-04-27 02:54:05.881428"], ["updated_at", "2019-04-27 02:54:05.881428"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 16ms (Views: 0.9ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/api/v1/batches" for 172.23.0.1 at 2019-04-27 02:54:09 +0000
+Processing by Api::V1::BatchesController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR10203' AND purchase_channel = 'Site BR' AND status = 'ready') LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:13
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mBatch Create (0.5ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["user_id", 1], ["created_at", "2019-04-27 02:54:09.271519"], ["updated_at", "2019-04-27 02:54:09.271519"]]
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mOrder Load (1.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR10203' AND purchase_channel = 'Site BR' AND status = 'ready')[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.6ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "status" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["batch_id", 3], ["status", "production"], ["updated_at", "2019-04-27 02:54:09.280035"], ["id", 6]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "status" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["batch_id", 3], ["status", "production"], ["updated_at", "2019-04-27 02:54:09.285948"], ["id", 5]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 3]]
+  ↳ app/controllers/api/v1/batches_controller.rb:21
+Completed 201 Created in 28ms (Views: 0.8ms | ActiveRecord: 9.1ms)
+
+
+Started PUT "/api/v1/batches/3/produce" for 172.23.0.1 at 2019-04-27 02:54:15 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"batch_id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.4ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production')[0m  [["batch_id", 3]]
+  ↳ app/controllers/api/v1/batches_controller.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "closing"], ["updated_at", "2019-04-27 02:54:15.452918"], ["id", 5]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "closing"], ["updated_at", "2019-04-27 02:54:15.460241"], ["id", 6]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+Completed 200 OK in 23ms (Views: 0.4ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:54:48 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "123.0"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["user_id", 1], ["created_at", "2019-04-27 02:54:48.497842"], ["updated_at", "2019-04-27 02:54:48.497842"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 35ms (Views: 0.6ms | ActiveRecord: 7.8ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:54:48 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "123.0"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["user_id", 1], ["created_at", "2019-04-27 02:54:48.869589"], ["updated_at", "2019-04-27 02:54:48.869589"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 10ms (Views: 0.7ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/api/v1/batches" for 172.23.0.1 at 2019-04-27 02:54:51 +0000
+Processing by Api::V1::BatchesController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR10203' AND purchase_channel = 'Site BR' AND status = 'ready') LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:13
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mBatch Create (0.8ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["user_id", 1], ["created_at", "2019-04-27 02:54:51.402369"], ["updated_at", "2019-04-27 02:54:51.402369"]]
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR10203' AND purchase_channel = 'Site BR' AND status = 'ready')[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.6ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "status" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["batch_id", 4], ["status", "production"], ["updated_at", "2019-04-27 02:54:51.413880"], ["id", 8]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.6ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "status" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["batch_id", 4], ["status", "production"], ["updated_at", "2019-04-27 02:54:51.418961"], ["id", 7]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 4]]
+  ↳ app/controllers/api/v1/batches_controller.rb:21
+Completed 201 Created in 51ms (Views: 0.8ms | ActiveRecord: 17.8ms)
+
+
+Started POST "/api/v1/batches" for 172.23.0.1 at 2019-04-27 02:54:52 +0000
+Processing by Api::V1::BatchesController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR10203' AND purchase_channel = 'Site BR' AND status = 'ready') LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:13
+Completed 422 Unprocessable Entity in 5ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/api/v1/batches/4/produce" for 172.23.0.1 at 2019-04-27 02:54:59 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"batch_id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production')[0m  [["batch_id", 4]]
+  ↳ app/controllers/api/v1/batches_controller.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mOrder Update (0.6ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "closing"], ["updated_at", "2019-04-27 02:54:59.745734"], ["id", 7]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "closing"], ["updated_at", "2019-04-27 02:54:59.753993"], ["id", 8]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 6.8ms)
+
+
+  
+TypeError (#<Order id: 7, reference: "BR10203", purchase_channel: "Site BR", client_name: "São Benedito", address: "Av. Amintas Barros Nº 3700 - Torre Business, Sala ...", delivery_service: "SEDEX", total_value: 0.123e3, line_items: "{sku: powebank-sunshine, capacity: 10000mah}", status: "closing", user_id: 1, batch_id: 4, created_at: "2019-04-27 02:54:48", updated_at: "2019-04-27 02:54:59"> is not a symbol nor a string):
+  
+app/controllers/api/v1/batches_controller.rb:54:in `produce'
+Started PUT "/api/v1/batches/4/produce" for 172.23.0.1 at 2019-04-27 02:55:07 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"batch_id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+Completed 422 Unprocessable Entity in 8ms (Views: 0.3ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-27 02:55:44 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "123.0"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["user_id", 1], ["created_at", "2019-04-27 02:55:44.370677"], ["updated_at", "2019-04-27 02:55:44.370677"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 35ms (Views: 0.7ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/api/v1/batches" for 172.23.0.1 at 2019-04-27 02:55:46 +0000
+Processing by Api::V1::BatchesController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR10203' AND purchase_channel = 'Site BR' AND status = 'ready') LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:13
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mBatch Create (0.5ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["user_id", 1], ["created_at", "2019-04-27 02:55:46.943692"], ["updated_at", "2019-04-27 02:55:46.943692"]]
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR10203' AND purchase_channel = 'Site BR' AND status = 'ready')[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "status" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["batch_id", 5], ["status", "production"], ["updated_at", "2019-04-27 02:55:46.951499"], ["id", 9]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 5]]
+  ↳ app/controllers/api/v1/batches_controller.rb:21
+Completed 201 Created in 38ms (Views: 0.4ms | ActiveRecord: 10.0ms)
+
+
+Started PUT "/api/v1/batches/5/produce" for 172.23.0.1 at 2019-04-27 02:56:33 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"batch_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production')[0m  [["batch_id", 5]]
+  ↳ app/controllers/api/v1/batches_controller.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "closing"], ["updated_at", "2019-04-27 02:56:33.209654"], ["id", 9]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 5]]
+  ↳ app/controllers/api/v1/batches_controller.rb:54
+Completed 200 OK in 56ms (Views: 0.4ms | ActiveRecord: 12.0ms)
+
+
+Started PUT "/api/v1/batches/5/produce" for 172.23.0.1 at 2019-04-27 02:56:38 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"batch_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+Completed 422 Unprocessable Entity in 9ms (Views: 0.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/v1/batches" for 172.23.0.1 at 2019-04-27 02:56:46 +0000
+Processing by Api::V1::BatchesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.4ms)[0m  [1m[34mSELECT "batches".* FROM "batches" WHERE "batches"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:7
+Completed 200 OK in 16ms (Views: 12.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/search?client_name=S%C3%A3o+Benedito" for 172.23.0.1 at 2019-04-27 02:56:53 +0000
+Processing by Api::V1::SearchController#search as JSON
+  Parameters: {"client_name"=>"São Benedito"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (client_name = 'São Benedito')[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/search_controller.rb:9
+Completed 200 OK in 9ms (Views: 5.1ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/api/v1/batches/5/send" for 172.23.0.1 at 2019-04-27 02:58:55 +0000
+Processing by Api::V1::BatchesController#send as JSON
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"5"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `send'
+Started PUT "/api/v1/batches/5/send" for 172.23.0.1 at 2019-04-27 02:59:29 +0000
+Processing by Api::V1::BatchesController#send as JSON
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"5"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `send'
+Started PUT "/api/v1/batches/5/send" for 172.23.0.1 at 2019-04-27 03:00:02 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/api/v1/batches/5/send"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/5/dispatch" for 172.23.0.1 at 2019-04-27 03:00:07 +0000
+  
+AbstractController::ActionNotFound (The action 'dispatch' could not be found for Api::V1::BatchesController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:158:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/5/dispatch" for 172.23.0.1 at 2019-04-27 03:00:18 +0000
+  
+ArgumentError (wrong number of arguments (given 3, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `dispatch'
+Started PUT "/api/v1/batches/5/dispatch" for 172.23.0.1 at 2019-04-27 03:01:06 +0000
+  
+ArgumentError (wrong number of arguments (given 3, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `dispatch'
+Started PUT "/api/v1/batches/5/dispatch" for 172.23.0.1 at 2019-04-27 03:01:18 +0000
+  
+ArgumentError (wrong number of arguments (given 3, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `dispatch'
+Started PUT "/api/v1/batches/5/dispatch" for 172.23.0.1 at 2019-04-27 03:01:22 +0000
+  
+ArgumentError (wrong number of arguments (given 3, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `dispatch'
+Started PUT "/api/v1/batches/5/dispatch" for 172.23.0.1 at 2019-04-27 03:01:26 +0000
+  
+ArgumentError (wrong number of arguments (given 3, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `dispatch'
+Started PUT "/api/v1/batches/5/dispatch.json" for 172.23.0.1 at 2019-04-27 03:01:39 +0000
+  
+ArgumentError (wrong number of arguments (given 3, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `dispatch'
+Started PUT "/api/v1/batches/5/produce" for 172.23.0.1 at 2019-04-27 03:02:20 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"batch_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.2ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'closing' AND delivery_service = NULL) LIMIT $2[0m  [["batch_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+Completed 422 Unprocessable Entity in 34ms (Views: 0.3ms | ActiveRecord: 8.7ms)
+
+
+Started PUT "/api/v1/batches/5/produce" for 172.23.0.1 at 2019-04-27 03:02:23 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"batch_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.7ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'closing' AND delivery_service = NULL) LIMIT $2[0m  [["batch_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started PUT "/api/v1/batches/5/produce" for 172.23.0.1 at 2019-04-27 03:02:37 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'closing' AND delivery_service = 'SEDEX') LIMIT $2[0m  [["batch_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'closing' AND delivery_service = 'SEDEX')[0m  [["batch_id", 5]]
+  ↳ app/controllers/api/v1/batches_controller.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "sent"], ["updated_at", "2019-04-27 03:02:37.169182"], ["id", 9]]
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:52
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 5]]
+  ↳ app/controllers/api/v1/batches_controller.rb:54
+Completed 200 OK in 33ms (Views: 0.9ms | ActiveRecord: 6.4ms)
+
+
+Started PUT "/api/v1/batches/5/produce" for 172.23.0.1 at 2019-04-27 03:04:07 +0000
+  
+ArgumentError (wrong number of arguments (given 3, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:32:in `dispatch'
+Started PUT "/api/v1/batches/5/produce" for 172.23.0.1 at 2019-04-27 03:04:27 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"delivery_service"=>"SEDEX", "batch_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.2ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:48
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:59
+  [1m[36mOrder Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+Completed 422 Unprocessable Entity in 33ms (Views: 0.3ms | ActiveRecord: 7.1ms)
+
+
+Started PUT "/api/v1/batches/5/produce" for 172.23.0.1 at 2019-04-27 03:05:53 +0000
+  
+ArgumentError (wrong number of arguments (given 3, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `dispatch'
+Started PUT "/api/v1/batches/5/produce" for 172.23.0.1 at 2019-04-27 03:07:24 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/api/v1/batches/5/produce"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/api/v1/batches" for 172.23.0.1 at 2019-04-27 03:07:29 +0000
+  
+ArgumentError (wrong number of arguments (given 3, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `dispatch'
+Started PUT "/api/v1/batches/5/dispatch" for 172.23.0.1 at 2019-04-27 03:08:22 +0000
+  
+ActionController::RoutingError (No route matches [PUT] "/api/v1/batches/5/dispatch"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/batches/5/produce" for 172.23.0.1 at 2019-04-27 03:08:30 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"batch_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+Completed 422 Unprocessable Entity in 47ms (Views: 0.3ms | ActiveRecord: 8.8ms)
+
+
+Started PUT "/api/v1/batches/5/produce" for 172.23.0.1 at 2019-04-27 03:12:02 +0000
+  
+ArgumentError (wrong number of arguments (given 3, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `dispatch'
+Started PUT "/api/v1/batches/5/produce" for 172.23.0.1 at 2019-04-27 03:17:01 +0000
+  
+ArgumentError (wrong number of arguments (given 3, expected 0)):
+  
+app/controllers/api/v1/batches_controller.rb:45:in `dispatch'
+Started PUT "/api/v1/batches/5/produce" for 172.23.0.1 at 2019-04-27 03:28:36 +0000
+Processing by Api::V1::BatchesController#produce as JSON
+  Parameters: {"batch_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBatch Load (0.4ms)[0m  [1m[34mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:72
+  [1m[36mOrder Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."batch_id" = $1 AND (status = 'production') LIMIT $2[0m  [["batch_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:35
+Completed 422 Unprocessable Entity in 42ms (Views: 0.3ms | ActiveRecord: 11.6ms)
+
+

@@ -13,9 +13,9 @@ class CreatingReferences < ActiveRecord::Migration[5.2]
       t.string :client_name
       t.text :address
       t.string :delivery_service
-      t.string :total_value
+      t.decimal :total_value
       t.text :line_items
-      t.string :status
+      t.string :status, default: 'ready'
       t.references :user
       t.references :batch
       t.timestamps

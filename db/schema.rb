@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 2019_04_26_022956) do
     t.string "client_name"
     t.text "address"
     t.string "delivery_service"
-    t.string "total_value"
+    t.decimal "total_value"
     t.text "line_items"
-    t.string "status"
+    t.string "status", default: "ready"
     t.bigint "user_id"
     t.bigint "batch_id"
     t.datetime "created_at", null: false

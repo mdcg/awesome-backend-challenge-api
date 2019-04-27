@@ -9,6 +9,6 @@ class Order < ApplicationRecord
     validates :status, presence: true 
 
     belongs_to :user
-    belongs_to :batch
+    belongs_to :batch, optional: true
 end
 
