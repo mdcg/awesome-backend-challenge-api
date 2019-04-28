@@ -300,7 +300,7 @@ To list the orders of a Purchase Channel, simply execute the request below:
 
 ```shell
 curl --location --request GET "localhost:3000/api/v1/orders?purchase_channel=Site+BR" \
-  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Email: mauro@ruby.com" \
   --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
   --header "Accept: application/json"
 ```
@@ -353,7 +353,7 @@ to create a batch, just send a request like the one below:
 
 ```shell
 curl --location --request POST "localhost:3000/api/v1/batches" \
-  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Email: mauro@ruby.com" \
   --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
   --header "Accept: application/json" \
   --form "reference=BR10203" \
@@ -412,7 +412,7 @@ To produce a batch, just send a request like the one below:
 
 ```shell
 curl --location --request PUT "localhost:3000/api/v1/batches/1/produce" \
-  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Email: mauro@ruby.com" \
   --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
   --header "Accept: application/json" \
   --form "delivery_service=SEDEX"
@@ -525,7 +525,7 @@ To send, just send a request like the one below:
 
 ```shell
 curl --location --request PUT "localhost:3000/api/v1/batches/2/submit" \
-  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Email: mauro@ruby.com" \
   --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
   --header "Accept: application/json" \
   --form "delivery_service=SEDEX"
@@ -585,7 +585,7 @@ Note that the order that has the "SEDEX" delivery service has been updated and i
 
 ```shell
 curl --location --request PUT "localhost:3000/api/v1/batches/2/submit" \
-  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Email: mauro@ruby.com" \
   --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
   --header "Accept: application/json" \
   --form "delivery_service=DHL"
@@ -657,7 +657,7 @@ And finally, a route to the financial report. In this route you can have a repor
 
 ```shell
 curl --location --request GET "localhost:3000/api/v1/report?purchase_channel=Site+BR" \
-  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Email: mauro@ruby.com" \
   --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
   --header "Accept: application/json"
 ```
@@ -666,7 +666,7 @@ If you prefer to have a general report, just send:
 
 ```shell
 curl --location --request GET "localhost:3000/api/v1/report" \
-  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Email: mauro@ruby.com" \
   --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
   --header "Accept: application/json"
 ```
