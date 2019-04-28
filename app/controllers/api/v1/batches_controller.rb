@@ -4,7 +4,7 @@ class Api::V1::BatchesController < Api::V1::ApiController
 
     def index
         @batches = current_user.batchs
-        render json: {status: :success, data: @batches}
+        render json: {status: :success, data: {batches: @batches}}
     end
 
     def create
@@ -18,15 +18,15 @@ class Api::V1::BatchesController < Api::V1::ApiController
                 @orders.each do |order|
                     order.update(batch: @batch, status: 'production')
                 end
-                render json: {status: :success, data: @batch.as_json(include: :orders)}, status: :created
+                render json: {status: :success, data: {batch: @batch.as_json(include: :orders)}}, status: :created
             else
-                render json: {status: :fail, data: @batch.errors}, status: :unprocessable_entity
+                render json: {status: :fail, data: {batch: @batch.errors}}, status: :unprocessable_entity
             end
         end
     end
 
     def show
-        render json: {status: :success, data: @batch.as_json(include: :orders)}
+        render json: {status: :success, data: {batch: @batch.as_json(include: :orders)}}
     end
 
     def produce
@@ -38,7 +38,7 @@ class Api::V1::BatchesController < Api::V1::ApiController
             @orders.each do |order|
                 order.update(status: 'closing')
             end
-            render json: {status: :success, data: @batch.as_json(include: :orders)}
+            render json: {status: :success, data: {batch: @batch.as_json(include: :orders)}}
         end
     end
 
@@ -51,7 +51,7 @@ class Api::V1::BatchesController < Api::V1::ApiController
             @orders.each do |order|
                 order.update(status: 'sent')
             end
-            render json: {status: :success, data: @batch.as_json(include: :orders)}
+            render json: {status: :success, data: {batch: @batch.as_json(include: :orders)}}
         end
     end
 

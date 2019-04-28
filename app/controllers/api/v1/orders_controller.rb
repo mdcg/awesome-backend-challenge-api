@@ -5,33 +5,36 @@ class Api::V1::OrdersController < Api::V1::ApiController
     def index
         if params[:purchase_channel] != nil
             @orders = current_user.orders.where("purchase_channel = ?", params[:purchase_channel])
-            render json: {status: :success, data: @orders}
+            render json: {status: :success, data: {orders: @orders}}
         else
             @orders = current_user.orders
-            render json: {status: :success, data: @orders}
+            render json: {status: :success, data: {orders: @orders}}
         end
     end
     
     def show
-        render json: {status: :success, data: @order}
+        render json: {status: :success, data: {order: @order}}
     end
 
     def create
         @order = Order.new(order_params.merge(user: current_user))
 
         if @order.save
-            render json: {status: :success, data: @order}, status: :created
+            render json: {status: :success, data: {order: @order}}, status: :created
         else
             render json: {status: :fail, data: @order.errors}, status: :unprocessable_entity
         end
     end
 
     def update
-        # Checar se é ready ou production
-        if @order.update(order_params)
-            render json: {status: :success, data: @order}
+        if @order.status == 'ready' or @order.status == 'production'
+            if @order.update(order_params)
+                render json: {status: :success, data: {order: @order}}
+            else
+                render json: {status: :fail, data: {order: @order}}, status: :unprocessable_entity
+            end
         else
-            render json: {status: :fail, data: @order}, status: :unprocessable_entity
+            render json: {status: :fail, data: {status: 'You can only change orders that are ready or in production'}}, status: :unprocessable_entity
         end
     end
 

@@ -6438,3 +6438,845 @@ puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
 puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (10.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro.dcg@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/users/sign_up" for 172.23.0.1 at 2019-04-28 00:09:36 +0000
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Devise::RegistrationsController#new as HTML
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/favicon.ico" for 172.23.0.1 at 2019-04-28 00:09:37 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/sign_up" for 172.23.0.1 at 2019-04-28 00:09:51 +0000
+Processing by Devise::RegistrationsController#new as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/report" for 172.23.0.1 at 2019-04-28 00:14:04 +0000
+Processing by Api::V1::ReportController#index as */*
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-28 00:14:04 +0000
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 19ms (Views: 0.1ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:14:13 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/signup"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:14:17 +0000
+Processing by Api::V1::UserController#signup as */*
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-28 00:14:17 +0000
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:14:25 +0000
+Processing by Api::V1::UserController#signup as */*
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.23.0.1 at 2019-04-28 00:14:25 +0000
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:15:27 +0000
+Processing by Api::V1::UserController#signup as */*
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+Completed 200 OK in 19ms (Views: 0.4ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:15:34 +0000
+Processing by Api::V1::UserController#signup as */*
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:16:03 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@python.com", "passwrod"=>"123456"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@python.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:16:26 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "passwrod"=>"123456"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:18:30 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "passwrod"=>"123456"}
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:18:31 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "passwrod"=>"123456"}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:18:32 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "passwrod"=>"123456"}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:18:33 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "passwrod"=>"123456"}
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:18:57 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "password"=>"[FILTERED]"}
+Completed 200 OK in 137ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:19:14 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "password"=>"[FILTERED]"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "xymefe45J7NGequKtsmi"]]
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[36mUser Create (2.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "mauro@ruby.com"], ["encrypted_password", "$2a$11$thcLwOETUJQPtFZLNIrZXOo6cVzlGVq2GrH2IBIWOWFxugKtycHNK"], ["created_at", "2019-04-28 00:19:14.188436"], ["updated_at", "2019-04-28 00:19:14.188436"], ["authentication_token", "xymefe45J7NGequKtsmi"]]
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+Completed 200 OK in 154ms (Views: 0.7ms | ActiveRecord: 9.0ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:19:20 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "password"=>"[FILTERED]"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+Completed 200 OK in 137ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:19:21 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "password"=>"[FILTERED]"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/user_controller.rb:3
+Completed 200 OK in 138ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:29:26 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "t"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/user_controller.rb:11
+Completed 201 Created in 152ms (Views: 0.5ms | ActiveRecord: 6.5ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:29:32 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "t"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/user_controller.rb:11
+Completed 201 Created in 146ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:29:33 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "t"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/user_controller.rb:11
+Completed 201 Created in 139ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:29:38 +0000
+Processing by Api::V1::UserController#signup as */*
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:29:41 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com"}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:30:46 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:8
+Completed 422 Unprocessable Entity in 14ms (Views: 0.3ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:30:49 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:8
+Completed 422 Unprocessable Entity in 2ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:31:13 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@elixir.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@elixir.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@elixir.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "zx3ssCCDXdrwCyqgQLZu"]]
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "mauro@elixir.com"], ["encrypted_password", "$2a$11$Dj0WNugjF5PgZDssdKeaFubyZlvc8pNf/nXATu71cFsPWG30tabnq"], ["created_at", "2019-04-28 00:31:13.479731"], ["updated_at", "2019-04-28 00:31:13.479731"], ["authentication_token", "zx3ssCCDXdrwCyqgQLZu"]]
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/user_controller.rb:11
+Completed 201 Created in 143ms (Views: 0.7ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:32:58 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@elixir.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@elixir.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:8
+Completed 422 Unprocessable Entity in 13ms (Views: 0.2ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:33:03 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@aa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@aa.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@aa.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "vxfbjgPggd8XmNJnsQvA"]]
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "mauro@aa.com"], ["encrypted_password", "$2a$11$LHOmEtX9kC/N271ulfevqe9GtStuM3.T0mp6rFDuIXY2.UEkN/.by"], ["created_at", "2019-04-28 00:33:03.898485"], ["updated_at", "2019-04-28 00:33:03.898485"], ["authentication_token", "vxfbjgPggd8XmNJnsQvA"]]
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/user_controller.rb:11
+Completed 201 Created in 144ms (Views: 0.5ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:33:14 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@aa.com", "password"=>"[FILTERED]", "name"=>"cuzinho"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@aa.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:8
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:33:20 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ca.com", "password"=>"[FILTERED]", "name"=>"cuzinho"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "aAEdaocVKAqGaJXQwyZR"]]
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name", "authentication_token") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "mauro@ca.com"], ["encrypted_password", "$2a$11$S.yXAV5ALPUIXQXWPVBDtusP/NHcy/8Bs3EVF.sDXSnzTWqi.0jga"], ["created_at", "2019-04-28 00:33:20.300198"], ["updated_at", "2019-04-28 00:33:20.300198"], ["name", "cuzinho"], ["authentication_token", "aAEdaocVKAqGaJXQwyZR"]]
+  ↳ app/controllers/api/v1/user_controller.rb:11
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/user_controller.rb:11
+Completed 201 Created in 143ms (Views: 0.5ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:36:18 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ca.com", "password"=>"[FILTERED]", "name"=>"cuzinho"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:9
+Completed 422 Unprocessable Entity in 13ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:36:26 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ca.com", "password"=>"[FILTERED]", "name"=>"cuzinho"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:9
+Completed 422 Unprocessable Entity in 13ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:36:28 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ca.com", "password"=>"[FILTERED]", "name"=>"cuzinho"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:9
+Completed 422 Unprocessable Entity in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:36:32 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@aca.com", "password"=>"[FILTERED]", "name"=>"cuzinho"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@aca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@aca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "6MWfXV6CsKP7GLsfE57B"]]
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name", "authentication_token") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "mauro@aca.com"], ["encrypted_password", "$2a$11$4mwVOfsiqnhQQGqCzoZ7C.anRUeCvIkieYZDkwTufhODDlXpMCLWy"], ["created_at", "2019-04-28 00:36:32.531103"], ["updated_at", "2019-04-28 00:36:32.531103"], ["name", "cuzinho"], ["authentication_token", "6MWfXV6CsKP7GLsfE57B"]]
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/user_controller.rb:12
+Completed 201 Created in 142ms (Views: 0.6ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:36:37 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@aca.com", "password"=>"[FILTERED]", "name"=>"cuzinho"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@aca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:9
+Completed 422 Unprocessable Entity in 3ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 00:36:39 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@aca.com", "password"=>"[FILTERED]", "name"=>"cuzinho"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@aca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:9
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-28 03:16:59 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 422 Unprocessable Entity in 72ms (Views: 0.4ms | ActiveRecord: 16.7ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-28 03:17:13 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (3.3ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "123.0"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["user_id", 1], ["created_at", "2019-04-28 03:17:13.189864"], ["updated_at", "2019-04-28 03:17:13.189864"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 13ms (Views: 0.8ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-28 03:17:18 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "123.0"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["user_id", 1], ["created_at", "2019-04-28 03:17:18.098088"], ["updated_at", "2019-04-28 03:17:18.098088"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 10ms (Views: 0.8ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/api/v1/batches" for 172.23.0.1 at 2019-04-28 03:17:25 +0000
+Processing by Api::V1::BatchesController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR10203' AND purchase_channel = 'Site BR' AND status = 'ready') LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:13
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mBatch Create (2.0ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["user_id", 1], ["created_at", "2019-04-28 03:17:25.904299"], ["updated_at", "2019-04-28 03:17:25.904299"]]
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:17
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR10203' AND purchase_channel = 'Site BR' AND status = 'ready')[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/batches_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.7ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "status" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["batch_id", 8], ["status", "production"], ["updated_at", "2019-04-28 03:17:25.914210"], ["id", 15]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "batch_id" = $1, "status" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["batch_id", 8], ["status", "production"], ["updated_at", "2019-04-28 03:17:25.927437"], ["id", 14]]
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batches_controller.rb:19
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."batch_id" = $1[0m  [["batch_id", 8]]
+  ↳ app/controllers/api/v1/batches_controller.rb:21
+Completed 201 Created in 61ms (Views: 0.9ms | ActiveRecord: 21.6ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 04:43:22 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@aca.com", "password"=>"[FILTERED]", "name"=>"cuzinho"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@aca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:9
+Completed 422 Unprocessable Entity in 16ms (Views: 0.2ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 04:49:48 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@aca.com", "password"=>"[FILTERED]", "name"=>"cuzinho"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@aca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:9
+Completed 422 Unprocessable Entity in 3ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 04:50:05 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@rubyy.com", "password"=>"[FILTERED]", "name"=>"Mauro"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@rubyy.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@rubyy.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "DMsYQ21mHMuHCUid_5wD"]]
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name", "authentication_token") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "mauro@rubyy.com"], ["encrypted_password", "$2a$11$24qzGLhoae6PY3g26EmPPO3V/TqK8ekLgpA8TRbZs1Gwd56hyL.qi"], ["created_at", "2019-04-28 04:50:05.318156"], ["updated_at", "2019-04-28 04:50:05.318156"], ["name", "Mauro"], ["authentication_token", "DMsYQ21mHMuHCUid_5wD"]]
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/user_controller.rb:12
+Completed 201 Created in 159ms (Views: 0.7ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 04:50:53 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@aca.com", "password"=>"[FILTERED]", "name"=>"cuzinhoclear"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@aca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:9
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (5009.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_development"[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (116.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_development"[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (108.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test"[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (644.6ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode'[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (260.9ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode'[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (20.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (19.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/bin/rake:23
+Migrating to DeviseCreateUsers (20190424214430)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (16.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190424214430_devise_create_users.rb:5
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20190424214430_devise_create_users.rb:39
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/migrate/20190424214430_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190424214430"]]
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /usr/local/bundle/bin/rake:23
+Migrating to AddNameToUser (20190424214431)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "name" character varying[0m
+  ↳ db/migrate/20190424214431_add_name_to_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190424214431"]]
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /usr/local/bundle/bin/rake:23
+Migrating to AddAuthenticationTokenToUsers (20190424215122)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "authentication_token" character varying(30)[0m
+  ↳ db/migrate/20190424215122_add_authentication_token_to_users.rb:3
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_authentication_token" ON "users"  ("authentication_token")[0m
+  ↳ db/migrate/20190424215122_add_authentication_token_to_users.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190424215122"]]
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /usr/local/bundle/bin/rake:23
+Migrating to CreatingReferences (20190426022956)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "batches" ("id" bigserial primary key, "reference" character varying, "purchase_channel" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:3
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE  INDEX  "index_batches_on_user_id" ON "batches"  ("user_id")[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:3
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "reference" character varying, "purchase_channel" character varying, "client_name" character varying, "address" text, "delivery_service" character varying, "total_value" decimal, "line_items" text, "status" character varying DEFAULT 'ready', "user_id" bigint, "batch_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:10
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:10
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_batch_id" ON "orders"  ("batch_id")[0m
+  ↳ db/migrate/20190426022956_creating_references.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190426022956"]]
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-04-28 04:51:48.353191"], ["updated_at", "2019-04-28 04:51:48.353191"]]
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  ↳ /usr/local/bundle/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/bin/rake:23
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 04:51:59 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "password"=>"[FILTERED]", "name"=>"Mauro"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "9A2zUyWaTRx5kG5LozRJ"]]
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name", "authentication_token") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "mauro@ruby.com"], ["encrypted_password", "$2a$11$t6Y810aRJIXH.QUSEfkNveNwGQ9SZrlNmx5UXSQdlUGVupTF.a6LC"], ["created_at", "2019-04-28 04:51:59.492482"], ["updated_at", "2019-04-28 04:51:59.492482"], ["name", "Mauro"], ["authentication_token", "9A2zUyWaTRx5kG5LozRJ"]]
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[35m (94.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/user_controller.rb:12
+Completed 201 Created in 266ms (Views: 0.7ms | ActiveRecord: 104.2ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 04:52:26 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "password"=>"[FILTERED]", "name"=>"Mauro"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:9
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 04:54:45 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"name"=>"Mauro"}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 04:55:03 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby.com", "name"=>"Mauro"}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-28 04:57:22 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.5ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 04:57:34 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby1.com", "name"=>"Mauro"}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/signup" for 172.23.0.1 at 2019-04-28 04:57:38 +0000
+Processing by Api::V1::UserController#signup as */*
+  Parameters: {"email"=>"mauro@ruby1.com", "password"=>"[FILTERED]", "name"=>"Mauro"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby1.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mauro@ruby1.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "tVGzvKBvEhUDPz-tSqyX"]]
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name", "authentication_token") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "mauro@ruby1.com"], ["encrypted_password", "$2a$11$Yw3nes8v5b/cVJKcP474rOtbVGgwFTqvRMWXSiBTEsTKWZUOUwvNC"], ["created_at", "2019-04-28 04:57:38.910896"], ["updated_at", "2019-04-28 04:57:38.910896"], ["name", "Mauro"], ["authentication_token", "tVGzvKBvEhUDPz-tSqyX"]]
+  ↳ app/controllers/api/v1/user_controller.rb:12
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/user_controller.rb:12
+Completed 201 Created in 156ms (Views: 0.9ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-28 04:57:53 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.7ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-28 04:58:13 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@ruby1.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (1.0ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "123.0"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["user_id", 2], ["created_at", "2019-04-28 04:58:13.883938"], ["updated_at", "2019-04-28 04:58:13.883938"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 44ms (Views: 0.7ms | ActiveRecord: 6.5ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-28 05:00:05 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@ruby.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[36mOrder Create (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "address", "delivery_service", "total_value", "line_items", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["reference", "BR10203"], ["purchase_channel", "Site BR"], ["client_name", "São Benedito"], ["address", "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250"], ["delivery_service", "SEDEX"], ["total_value", "123.0"], ["line_items", "{sku: powebank-sunshine, capacity: 10000mah}"], ["user_id", 1], ["created_at", "2019-04-28 05:00:05.368369"], ["updated_at", "2019-04-28 05:00:05.368369"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 201 Created in 9ms (Views: 0.7ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-28 05:03:22 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"BR10203", "purchase_channel"=>"Site BR", "client_name"=>"São Benedito", "address"=>"Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250", "delivery_service"=>"SEDEX", "total_value"=>"123", "line_items"=>"{sku: powebank-sunshine, capacity: 10000mah}"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/orders" for 172.23.0.1 at 2019-04-28 05:03:54 +0000
+Processing by Api::V1::OrdersController#create as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@ruby1.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :user_email, :user_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:22
+Completed 422 Unprocessable Entity in 9ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/v1/orders/1" for 172.23.0.1 at 2019-04-28 05:09:34 +0000
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@ruby1.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/orders_controller.rb:44
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/orders_controller.rb:55
+Completed 200 OK in 30ms (Views: 1.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/api/v1/search?client_name=S%C3%A3o+Benedito" for 172.23.0.1 at 2019-04-28 05:13:27 +0000
+Processing by Api::V1::SearchController#search as JSON
+  Parameters: {"client_name"=>"São Benedito"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@gmail.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/search?client_name=S%C3%A3o+Benedito" for 172.23.0.1 at 2019-04-28 05:14:02 +0000
+Processing by Api::V1::SearchController#search as JSON
+  Parameters: {"client_name"=>"São Benedito"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@ruby1.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (client_name = 'São Benedito')[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/search_controller.rb:9
+Completed 200 OK in 17ms (Views: 2.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/v1/search?reference=BR10203" for 172.23.0.1 at 2019-04-28 05:14:17 +0000
+Processing by Api::V1::SearchController#search as JSON
+  Parameters: {"reference"=>"BR10203"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@ruby1.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (reference = 'BR10203')[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/search_controller.rb:6
+Completed 200 OK in 6ms (Views: 1.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/search?client_name=S%C3%A3o+Benedito" for 172.23.0.1 at 2019-04-28 05:16:16 +0000
+Processing by Api::V1::SearchController#search as JSON
+  Parameters: {"client_name"=>"São Benedito"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@ruby1.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (client_name = 'São Benedito')[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/search_controller.rb:9
+Completed 200 OK in 6ms (Views: 1.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/search?client_name=S%C3%A3o+Benedit" for 172.23.0.1 at 2019-04-28 05:16:24 +0000
+Processing by Api::V1::SearchController#search as JSON
+  Parameters: {"client_name"=>"São Benedit"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@ruby1.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (client_name = 'São Benedit')[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/search_controller.rb:9
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/search?client_name=S%C3%A3o+Benedito" for 172.23.0.1 at 2019-04-28 05:16:27 +0000
+Processing by Api::V1::SearchController#search as JSON
+  Parameters: {"client_name"=>"São Benedito"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@ruby1.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (client_name = 'São Benedito')[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/search_controller.rb:9
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/search?client_name=S%C3%A3o+Benedit1" for 172.23.0.1 at 2019-04-28 05:22:07 +0000
+Processing by Api::V1::SearchController#search as JSON
+  Parameters: {"client_name"=>"São Benedit1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mauro@ruby1.com"], ["LIMIT", 1]]
+  ↳ /usr/local/bundle/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (1.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND (client_name = 'São Benedit1')[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/search_controller.rb:9
+Completed 200 OK in 11ms (Views: 1.4ms | ActiveRecord: 3.3ms)
+
+
