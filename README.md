@@ -81,7 +81,7 @@ Now that we have everything configured and our server is running, we can finally
 
 ## Entities
 
-The entities as well as their properties follow as specified in the 'AutoForce - Backend Challenge', except for:
+The entities as well as their properties follow as specified in the **AutoForce - Backend Challenge**, except for:
 
 - A new entity called `User`. This way, we add a permission layer and also ensure that each user is only working with their stuff;
 - By default, when created, the Orders have the status of `ready`;
@@ -91,7 +91,7 @@ The entities as well as their properties follow as specified in the 'AutoForce -
 
 ### User Registration
 
-As stated before, all routes need an authentication header. Token authentication support has been removed from Devise for security reasons, so I chose to use (simple_token_authentication)[https://github.com/gonzalo-bulnes/simple_token_authentication]. To get access to your authentication token just make a request below:
+As stated before, all routes need an authentication header. Token authentication support has been removed from Devise for security reasons, so I chose to use [simple_token_authentication](https://github.com/gonzalo-bulnes/simple_token_authentication). To get access to your authentication token just make a request below:
 
 ```shell
 curl --location --request POST "localhost:3000/api/v1/signup" \
@@ -249,7 +249,7 @@ And the last one is by client name, you can search as follows:
 
 ```shell
 curl --location --request GET "localhost:3000/api/v1/search?client_name=S%C3%A3o+Benedito" \
-  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Email: mauro@ruby.com" \
   --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
   --header "Accept: application/json"
 ```
@@ -296,43 +296,445 @@ If there are none:
 
 ### List the Orders of a Purchase Channel
 
+To list the orders of a Purchase Channel, simply execute the request below:
+
+```shell
+curl --location --request GET "localhost:3000/api/v1/orders?purchase_channel=Site+BR" \
+  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
+  --header "Accept: application/json"
+```
+
+if any order is found, here's the answer:
+
+```javascript
+{
+    "status": "success",
+    "data": {
+        "orders": [
+            {
+                "id": 1,
+                "reference": "BR10203",
+                "purchase_channel": "Site BR",
+                "client_name": "São Benedito",
+                "address": "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250",
+                "delivery_service": "SEDEX",
+                "total_value": "123.0",
+                "line_items": "{sku: powebank-sunshine, capacity: 10000mah}",
+                "status": "ready",
+                "user_id": 2,
+                "batch_id": null,
+                "created_at": "2019-04-28T04:58:13.883Z",
+                "updated_at": "2019-04-28T04:58:13.883Z"
+            }
+        ]
+    }
+}
+```
+
+If there are none:
+
+```javascript
+{
+    "status": "success",
+    "data": {
+        "orders": []
+    }
+}
+```
+
+*PS: if no query string parameter (?purchase_channel=...) is given, all user requests are displayed.*
+
 ### Create a Batch
+
+To create a batch, you need to enter the reference and purchase channel. In this way, all orders that are from the 'purchase channel' informed and that have the 'ready' status will be associated with a batch.
+
+to create a batch, just send a request like the one below:
+
+```shell
+curl --location --request POST "localhost:3000/api/v1/batches" \
+  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
+  --header "Accept: application/json" \
+  --form "reference=BR10203" \
+  --form "purchase_channel=Site BR"
+```
+
+If the batch is created, the answer will look like the one below:
+
+```javascript
+{
+    "status": "success",
+    "data": {
+        "batch": {
+            "id": 1,
+            "reference": "BR10203",
+            "purchase_channel": "Site BR",
+            "user_id": 2,
+            "created_at": "2019-04-28T14:20:58.750Z",
+            "updated_at": "2019-04-28T14:20:58.750Z",
+            "orders": [
+                {
+                    "id": 1,
+                    "reference": "BR10203",
+                    "purchase_channel": "Site BR",
+                    "client_name": "São Benedito",
+                    "address": "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250",
+                    "delivery_service": "SEDEX",
+                    "total_value": "123.0",
+                    "line_items": "{sku: powebank-sunshine, capacity: 10000mah}",
+                    "status": "production",
+                    "user_id": 2,
+                    "batch_id": 1,
+                    "created_at": "2019-04-28T04:58:13.883Z",
+                    "updated_at": "2019-04-28T14:20:58.763Z"
+                }
+            ]
+        }
+    }
+}
+```
+
+Only lots with at least one order will be created. If you try to create an empty batch (with no production order) you will receive a message like the one below together with the HTTP status code 422:
+
+```javascript
+{
+    "status": "fail",
+    "data": {}
+}
+```
 
 ### Produce a Batch
 
+To produce a batch, the orders associated with it must have the 'production' status. After being produced, the same requests will be in the 'closing' status and can no longer be edited. 
+
+To produce a batch, just send a request like the one below:
+
+```shell
+curl --location --request PUT "localhost:3000/api/v1/batches/1/produce" \
+  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
+  --header "Accept: application/json" \
+  --form "delivery_service=SEDEX"
+```
+
+
+If the lot is produced, the response shall be as follows:
+
+```javascript
+{
+    "status": "success",
+    "data": {
+        "batch": {
+            "id": 1,
+            "reference": "BR10203",
+            "purchase_channel": "Site BR",
+            "user_id": 2,
+            "created_at": "2019-04-28T14:20:58.750Z",
+            "updated_at": "2019-04-28T14:20:58.750Z",
+            "orders": [
+                {
+                    "id": 1,
+                    "reference": "BR10203",
+                    "purchase_channel": "Site BR",
+                    "client_name": "São Benedito",
+                    "address": "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250",
+                    "delivery_service": "SEDEX",
+                    "total_value": "123.0",
+                    "line_items": "{sku: powebank-sunshine, capacity: 10000mah}",
+                    "status": "closing",
+                    "user_id": 2,
+                    "batch_id": 1,
+                    "created_at": "2019-04-28T04:58:13.883Z",
+                    "updated_at": "2019-04-28T14:27:52.899Z"
+                }
+            ]
+        }
+    }
+}
+```
+
+If you try to produce a batch that does not have lots in 'production', you will receive the answer below and the HTTP status code 422:
+
+```javascript
+{
+    "status": "fail",
+    "data": {}
+}
+```
+
+*PS: Remember that from here you can no longer edit an order. Orders can only be edited when they have the status 'ready' or 'production'. Then make sure everything is right before producing the batch.*
+
 ### Close part of a Batch for a Delivery Service
+
+To send the orders of a batch for a delivery service, first of all the orders must have the status of 'closing'. After verifying the status of the orders, you will need to inform the delivery service that you want to dispatch. For this example, I created two other orders, linked them to a batch, and sent them to production. The difference is that each order has a different delivery service (one is SEDEX and the other DHL). 
+
+Below are the objects that were created for this example:
+
+```javascript
+{
+    "status": "success",
+    "data": {
+        "batch": {
+            "id": 2,
+            "reference": "BR10203",
+            "purchase_channel": "Site BR",
+            "user_id": 2,
+            "created_at": "2019-04-28T15:19:58.205Z",
+            "updated_at": "2019-04-28T15:19:58.205Z",
+            "orders": [
+                {
+                    "id": 3,
+                    "reference": "BR10203",
+                    "purchase_channel": "Site BR",
+                    "client_name": "São Benedito",
+                    "address": "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250",
+                    "delivery_service": "SEDEX",
+                    "total_value": "123.0",
+                    "line_items": "{sku: powebank-sunshine, capacity: 10000mah}",
+                    "status": "closing",
+                    "user_id": 2,
+                    "batch_id": 2,
+                    "created_at": "2019-04-28T15:19:20.284Z",
+                    "updated_at": "2019-04-28T15:31:28.397Z"
+                },
+                {
+                    "id": 4,
+                    "reference": "BR10203",
+                    "purchase_channel": "Site BR",
+                    "client_name": "São Benedito",
+                    "address": "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250",
+                    "delivery_service": "DHL",
+                    "total_value": "123.0",
+                    "line_items": "{sku: powebank-sunshine, capacity: 10000mah}",
+                    "status": "closing",
+                    "user_id": 2,
+                    "batch_id": 2,
+                    "created_at": "2019-04-28T15:19:39.625Z",
+                    "updated_at": "2019-04-28T15:31:28.417Z"
+                }
+            ]
+        }
+    }
+}
+```
+
+Every delivery service has a different schedule. For that reason, we dispatch Orders of the same delivery service together. 
+
+To send, just send a request like the one below:
+
+```shell
+curl --location --request PUT "localhost:3000/api/v1/batches/2/submit" \
+  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
+  --header "Accept: application/json" \
+  --form "delivery_service=SEDEX"
+```
+
+After sending the request, here's the response:
+
+```javascript
+{
+    "status": "success",
+    "data": {
+        "batch": {
+            "id": 2,
+            "reference": "BR10203",
+            "purchase_channel": "Site BR",
+            "user_id": 2,
+            "created_at": "2019-04-28T15:19:58.205Z",
+            "updated_at": "2019-04-28T15:19:58.205Z",
+            "orders": [
+                {
+                    "id": 3,
+                    "reference": "BR10203",
+                    "purchase_channel": "Site BR",
+                    "client_name": "São Benedito",
+                    "address": "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250",
+                    "delivery_service": "SEDEX",
+                    "total_value": "123.0",
+                    "line_items": "{sku: powebank-sunshine, capacity: 10000mah}",
+                    "status": "sent",
+                    "user_id": 2,
+                    "batch_id": 2,
+                    "created_at": "2019-04-28T15:19:20.284Z",
+                    "updated_at": "2019-04-28T16:12:44.165Z"
+                },
+                {
+                    "id": 4,
+                    "reference": "BR10203",
+                    "purchase_channel": "Site BR",
+                    "client_name": "São Benedito",
+                    "address": "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250",
+                    "delivery_service": "DHL",
+                    "total_value": "123.0",
+                    "line_items": "{sku: powebank-sunshine, capacity: 10000mah}",
+                    "status": "closing",
+                    "user_id": 2,
+                    "batch_id": 2,
+                    "created_at": "2019-04-28T15:19:39.625Z",
+                    "updated_at": "2019-04-28T15:31:28.417Z"
+                }
+            ]
+        }
+    }
+}
+```
+
+Note that the order that has the "SEDEX" delivery service has been updated and is now in the 'sent' status. However, the DHL delivery service is still in the 'closing' status. So, if you want to send it, just send another request like the one below specifying that the delivery service is now 'DHL':
+
+```shell
+curl --location --request PUT "localhost:3000/api/v1/batches/2/submit" \
+  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
+  --header "Accept: application/json" \
+  --form "delivery_service=DHL"
+```
+
+
+Notice now that both orders have the status 'sent':
+
+```javascript
+{
+    "status": "success",
+    "data": {
+        "batch": {
+            "id": 2,
+            "reference": "BR10203",
+            "purchase_channel": "Site BR",
+            "user_id": 2,
+            "created_at": "2019-04-28T15:19:58.205Z",
+            "updated_at": "2019-04-28T15:19:58.205Z",
+            "orders": [
+                {
+                    "id": 3,
+                    "reference": "BR10203",
+                    "purchase_channel": "Site BR",
+                    "client_name": "São Benedito",
+                    "address": "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250",
+                    "delivery_service": "SEDEX",
+                    "total_value": "123.0",
+                    "line_items": "{sku: powebank-sunshine, capacity: 10000mah}",
+                    "status": "sent",
+                    "user_id": 2,
+                    "batch_id": 2,
+                    "created_at": "2019-04-28T15:19:20.284Z",
+                    "updated_at": "2019-04-28T16:12:44.165Z"
+                },
+                {
+                    "id": 4,
+                    "reference": "BR10203",
+                    "purchase_channel": "Site BR",
+                    "client_name": "São Benedito",
+                    "address": "Av. Amintas Barros Nº 3700 - Torre Business, Sala 702 - Lagoa Nova CEP: 59075-250",
+                    "delivery_service": "DHL",
+                    "total_value": "123.0",
+                    "line_items": "{sku: powebank-sunshine, capacity: 10000mah}",
+                    "status": "sent",
+                    "user_id": 2,
+                    "batch_id": 2,
+                    "created_at": "2019-04-28T15:19:39.625Z",
+                    "updated_at": "2019-04-28T16:17:36.835Z"
+                }
+            ]
+        }
+    }
+}
+```
+
+If you try to send a batch for a delivery service that does not exist or the status of the order is not 'closing', here's the answer:
+
+```javascript
+{
+    "status": "fail",
+    "data": {}
+}
+```
 
 ### A simple financial report
 
-rails c
-User.create(email: 'mauro@gmail.com', password: '123456')
+And finally, a route to the financial report. In this route you can have a report of all your orders or if you prefer, you may have only the orders of a specific purchase channel. An example of a request for report by purchase channel can be performed as the request below:
 
-- Create and List Orders
-localhost:3000/api/v1/orders
+```shell
+curl --location --request GET "localhost:3000/api/v1/report?purchase_channel=Site+BR" \
+  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
+  --header "Accept: application/json"
+```
 
-- List the Orders of a Purchase Channel
-localhost:3000/api/v1/orders?purchase_channel=Site+BR
+If you prefer to have a general report, just send:
 
-- Get the status of an Order
-localhost:3000/api/v1/orders/1
+```shell
+curl --location --request GET "localhost:3000/api/v1/report" \
+  --header "X-User-Email: mauro@ruby1.com" \
+  --header "X-User-Token: tVGzvKBvEhUDPz-tSqyX" \
+  --header "Accept: application/json"
+```
 
-localhost:3000/api/v1/search?reference=BR102030
-localhost:3000/api/v1/search?client_name=São+Benedito
+The request response will be very similar to the one below:
 
-- Update an Order
-localhost:3000/api/v1/orders/1
+```javascript
+{
+    "status": "success",
+    "data": {
+        "total_orders": 3,
+        "total_value": "369.0"
+    }
+}
+```
 
-- Create and List batches
-localhost:3000/api/v1/batches
+If you request the report of any purchase channel that does not exist, here is the response:
 
-- Get batch details
-localhost:3000/api/v1/batches/1
+```javascript
+{
+    "status": "success",
+    "data": {
+        "total_orders": 0,
+        "total_value": 0
+    }
+}
+```
 
-- Produce a batch
-localhost:3000/api/v1/batches/1/produce
+## Routes
+If you prefer to test using for example Postman, here is the complete list of routes (Remember to add the authentication headers before making the requests):
 
-- Submit a batch
-localhost:3000/api/v1/batches/1/submit
+### User Registration (POST)
+`localhost:3000/api/v1/signup`
 
-- Financial Report
-localhost:3000/api/v1/report?purchase_channel=
+### Create/List Orders (POST/GET)
+`localhost:3000/api/v1/orders`
+
+### List the Orders of a Purchase Channel (GET)
+`localhost:3000/api/v1/orders?purchase_channel=Site+BR`
+
+### Get the status of an Order (GET)
+`localhost:3000/api/v1/orders/<order_id>`
+`localhost:3000/api/v1/search?reference=BR102030`
+`localhost:3000/api/v1/search?client_name=São+Benedito`
+
+### Update an Order (PUT)
+`localhost:3000/api/v1/orders/1`
+
+### Create and List batches (POST/GET)
+`localhost:3000/api/v1/batches`
+
+### Get batch details (GET)
+`localhost:3000/api/v1/batches/<batch_id>`
+
+### Produce a batch (PUT)
+`localhost:3000/api/v1/batches/<batch_id>/produce`
+
+### Close part of a batch for a delivery service (PUT)
+`localhost:3000/api/v1/batches/<batch_id>/submit`
+
+### Financial report (GET)
+`localhost:3000/api/v1/report`
+`localhost:3000/api/v1/report?purchase_channel=Site+BR`
+
+*PS: To maintain data consistency, no entries are deleted from our database. For this reason, we do not have routes to 'destroy' anything.*
+
+## Conclusion
+
+Again, I would like to thank Autoforce for the opportunity. I preferred to attack the crucial points for the operation of the project, so I ended up giving up web UI to control everything directly, for example. 
+
+However, I think it is fully functional within the proposed requirements. I hope you like the final result and I'm waiting for feedback. Cya! :)
