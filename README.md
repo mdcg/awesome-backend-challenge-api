@@ -53,7 +53,7 @@ In the project root folder, where the `Dockerfile` and `docker-compose.yml` file
 $ docker-compose up
 ```
 
-*PS: Keep in mind that for many Docker and Docker Compose commands, you need to give 'sudo' privileges. If the above command does not work, add 'sudo' and try again.*
+***PS: Keep in mind that for many Docker and Docker Compose commands, you need to give 'sudo' privileges. If the above command does not work, add 'sudo' and try again.***
 
 It should take a while for the container build, so have a little patience. If everything goes well, you'll see a response on your terminal much like this:
 
@@ -100,7 +100,7 @@ curl --location --request POST "localhost:3000/api/v1/signup" \
   --form "name=Mauro"
 ```
 
-*PS: Name is not required, however email and password are.*
+***PS: Name is not required, however email and password are.***
 
 If all goes well, you'll get a response like the one below:
 
@@ -343,7 +343,7 @@ If there are none:
 }
 ```
 
-*PS: if no query string parameter (?purchase_channel=...) is given, all user requests are displayed.*
+***PS: if no query string parameter (?purchase_channel=...) is given, all user requests are displayed.***
 
 ### Create a Batch
 
@@ -463,7 +463,7 @@ If you try to produce a batch that does not have lots in 'production', you will 
 }
 ```
 
-*PS: Remember that from here you can no longer edit an order. Orders can only be edited when they have the status 'ready' or 'production'. Then make sure everything is right before producing the batch.*
+***PS: Remember that from here you can no longer edit an order. Orders can only be edited when they have the status 'ready' or 'production'. Then make sure everything is right before producing the batch.***
 
 ### Close part of a Batch for a Delivery Service
 
@@ -731,7 +731,7 @@ If you prefer to test using for example Postman, here is the complete list of ro
 `localhost:3000/api/v1/report`
 `localhost:3000/api/v1/report?purchase_channel=Site+BR`
 
-*PS: To maintain data consistency, no entries are deleted from our database. For this reason, we do not have routes to 'destroy' anything.*
+***PS: To maintain data consistency, no entries are deleted from our database. For this reason, we do not have routes to 'destroy' anything.***
 
 ## Conclusion
 
